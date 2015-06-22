@@ -43,7 +43,7 @@ connection.query('SELECT * from customer', function(err, rows, fields) {
 
 
 
-
+//edited
 connection.end();
 //app.post('/', function(req, res){
 //  var userName = req.body.userName;
