@@ -9,7 +9,7 @@ var app = express();
 app.use(bodyParser());
 
 app.get('/', function(req, res){
-  var html = '<form action="/" method="post">' +
+  var html = '<form action="/hello" method="post">' +
                'Enter your name:' +
                '<input type="text" name="userName" placeholder=" " />' +
                '<br>'
@@ -34,12 +34,17 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * from customer', function(err, rows, fields) {
-  if (!err)
-    console.log('The solution is: ', rows);
-  else
-    console.log('Error while performing Query.');
+app.post('/hello',function(req,res){
+
+    res.send('You sent the name "' + req.body.name + '".');
+   var name=req.body(userName);
+   var password=req.body(pass);
+
 });
+
+
+
+
 
 
 
